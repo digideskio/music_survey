@@ -89,5 +89,15 @@ $(document).ready( ->
       $("#record_username").val(username)
       nextSection()
       )
+      
+    playing = false
+    $("#play_stop_button").click( ->
+      if (playing)
+        stopAudio()
+        playing = false
+      else
+        startAudio()
+        playing = true
+      )
     
   )

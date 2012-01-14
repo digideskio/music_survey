@@ -52,7 +52,15 @@
   text-align: center;  
 }
 
+#play_stop_button {
+  text-align: center;  
+}
+
 a {
   text-decoration: none;
   color: black;
+}
+
+#sound_element {
+  float: right;
 }
