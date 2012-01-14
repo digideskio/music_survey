@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+#body {
+  background-color: white;
+}
+
+#title {
+  font-family:"Century Gothic"
+}
+
+#container {
+  background-color: white;
+  padding: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 710px;
+  border:2px solid;
+  border-color: black;
+}
+
+#countdown {
+  float: right;
+  font-family:"Century Gothic"
+}
+
+.button {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border:2px solid;
+  border-color: black;
+  width: 75px;
+  font-family:"Century Gothic"
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+#next {
+  float: right;
+  text-align: center;  
+}
+
+#user_button {
+  text-align: center;  
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

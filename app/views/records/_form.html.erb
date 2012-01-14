@@ -1,0 +1,115 @@
+<%= form_for(@record) do |f| %>
+  <% if @record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% @record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="problem_one_questions">
+    <div class="field">
+      <%= f.label :name, "AP only occurs in trained musicians." %><br />
+      <%= f.radio_button :p1a1, "true" %>
+      <%= label :p1a1_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p1a1, "false" %>
+      <%= label :p1a1_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, "People with AP are able to control when they want to identify a pitch and when they don’t." %><br />
+      <%= f.radio_button :p1a2, "true" %>
+      <%= label :p1a2_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p1a2, "false" %>
+      <%= label :p1a2_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, "The act of transposing music is difficult for people with AP." %><br />
+      <%= f.radio_button :p1a3, "true" %>
+      <%= label :p1a3_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p1a3, "false" %>
+      <%= label :p1a3_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, "Our brains break down visual information and auditory information in a similar way." %><br />
+      <%= f.radio_button :p1a4, "true" %>
+      <%= label :p1a4_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p1a4, "false" %>
+      <%= label :p1a4_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label "The phenomenon of AP may be explained by differences in brain structures" %><br />
+      <%= f.radio_button :p1a5, "true" %>
+      <%= label :p1a5_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p1a5, "false" %>
+      <%= label :p1a5_false, 'False', :value=>"false" %>
+    </div>
+  </div>
+  
+  <div id="problem_two_questions">
+    <div class="field">
+      <%= f.label "Scientific discoveries of anatomical differences in musicians’ brains began in the 19th century and continue today." %><br />
+      <%= f.radio_button :p2a1, "true" %>
+      <%= label :p2a1_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p2a1, "false" %>
+      <%= label :p2a1_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label "Musicians have asymmetry in the planum temporale, with the right side usually being larger than the left." %><br />
+      <%= f.radio_button :p2a2, "true" %>
+      <%= label :p2a2_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p2a2, "false" %>
+      <%= label :p2a2_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label "Generally, the earlier the person began musical training, the greater asymmetry was noticed in hand skills." %><br />
+      <%= f.radio_button :p2a3, "true" %>
+      <%= label :p2a3_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p2a3, "false" %>
+      <%= label :p2a3_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label "The size of the planum temporale is a commonly used measure of dominance in the brain." %><br />
+      <%= f.radio_button :p2a4, "true" %>
+      <%= label :p2a4_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p2a4, "false" %>
+      <%= label :p2a4_false, 'False', :value=>"false" %>
+    </div>
+    <div class="field">
+      <%= f.label "Asymmetries in several brain areas (corpus callosum, primary motor cortex, etc) have been most pronounced between non-AP musicians and AP musicians." %><br />
+      <%= f.radio_button :p2a5, "true" %>
+      <%= label :p2a5_true, 'True', :value=>"true" %>
+      <%= f.radio_button :p2a5, "false" %>
+      <%= label :p2a5_false, 'False', :value=>"false" %>
+    </div>
+  </div>
+  
+  <div id="username_field">
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+  </div>
+  <div id="submit_button">
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+  </div>
+  
+  <div id="music"> <%= @music_bool %> </div>
+  <div id="order"> <%= @order_bool %> </div>
+  
+  <div id="metadata">
+    <div class="field">
+      <%= f.label :music %><br />
+      <%= f.check_box :music %>
+    </div>
+    <div class="field">
+      <%= f.label :order %><br />
+      <%= f.check_box :order %>
+    </div>
+  <div>
+<% end %>

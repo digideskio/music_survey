@@ -1,0 +1,93 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+$(document).ready( ->
+    $("#metadata").hide();
+    $("#music").hide();
+    $("#order").hide();        
+    $("#submit_button").hide();
+    $("#username_field").hide();
+    music_bool = $("#music").html() == ' true '
+    order_bool = $("#order").html() == ' true '
+    
+    sec = 0;
+    
+    startAudio = () ->  
+      sound_file_url = "<%= asset_path('track.m4a?body=1') %>"
+      $('#sound_element').html("<embed src='"+sound_file_url+"' hidden=true autostart=true loop=false>");
+    
+    stopAudio = () ->
+      $('#sound_element').html("");
+    
+    hideAll = () ->
+      $("#problem_one_passage").hide()    
+      $("#problem_two_passage").hide()
+      $("#problem_one_questions").hide()    
+      $("#problem_two_questions").hide() 
+    
+    sections = new Array();
+    
+    time = 0
+    t = 0    
+
+    if (order_bool)
+      sections = ["#problem_one_passage", "#problem_one_questions", "#problem_two_passage", "#problem_two_questions"]
+    else
+      sections = ["#problem_two_passage", "#problem_two_questions", "#problem_one_passage", "#problem_one_questions"]
+    
+    nextSection = () ->
+      if (sec > 3)
+        $("#countdown").hide()
+        $("#new_record").submit()
+      title = if sec < 2 then "Passage 1" else "Passage 2"
+      title = if sec%2==0 then title else title + ": Questions"
+      $("#title").html(title)
+      clearTimeout(t)
+      if (music_bool && sec == 0)
+        startAudio()
+      if (sec == 2)
+        stopAudio()
+        if (!music_bool)
+          startAudio()
+          
+      if (sec < 4)
+        hideAll()
+        $(sections[sec]).show()
+        if (sec % 2)
+          time = 60
+        else
+          time = 120
+        setTimeout nextSection, time*1000
+        tick()
+        if (sec == 3)
+          $("#submit_button").show()
+        sec++
+        
+    
+    secondsToTime = (seconds) ->
+      mm = Math.floor(seconds/60)
+      # mm = (mm < 10 ? '0' : '') + mm
+      ss = seconds % 60;
+      sst = ''
+      if (ss < 10)
+        sst = '0' + ss
+      else
+        sst = '' + ss
+      "#{mm}:#{sst}"
+    
+    tick = () ->
+      $("#countdown").html(secondsToTime(time))
+      time = time - 1;
+      t = setTimeout tick, 1000
+      
+    hideAll()
+    username=""
+    $("#user_button").click( ->
+      username = $("#username").val()
+      $(".user").hide()
+      $("#record_username").val(username)
+      nextSection()
+      )
+    
+  )

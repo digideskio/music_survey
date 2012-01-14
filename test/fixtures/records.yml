@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  music: false
+  order: false
+  p1a1: false
+  p1a2: false
+  p1a3: false
+  p1a4: false
+  p1a5: false
+  p2a1: false
+  p2a2: false
+  p2a3: false
+  p2a4: false
+  p2a5: false
+
+two:
+  music: false
+  order: false
+  p1a1: false
+  p1a2: false
+  p1a3: false
+  p1a4: false
+  p1a5: false
+  p2a1: false
+  p2a2: false
+  p2a3: false
+  p2a4: false
+  p2a5: false
