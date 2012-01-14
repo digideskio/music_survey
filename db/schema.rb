@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114001203) do
+ActiveRecord::Schema.define(:version => 20120114180722) do
 
   create_table "records", :force => true do |t|
     t.boolean  "music"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120114001203) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.text     "comment"
   end
 
 end

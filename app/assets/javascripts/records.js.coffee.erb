@@ -55,9 +55,9 @@ $(document).ready( ->
         hideAll()
         $(sections[sec]).show()
         if (sec % 2)
-          time = 60
+          time = 4
         else
-          time = 120
+          time = 2
         setTimeout nextSection, time*1000
         tick()
         if (sec == 3)
